@@ -1,20 +1,20 @@
-import './App.css'
-import Counter from './components/Counter'
-import ToggleImage from './components/ToggleImage'
-import UserProfile from './components/UserProfile'
-import Hour from './components/Hour'
-import CounterTime from './components/Exercicio'
+import "./App.scss";
+import { Routes, Route } from "react-router-dom";
+import { Home, About, Blog, Post } from "./pages/pages";
+import Navbar from "./components/layout/Navbar";
 
 function App() {
-  return <div className='main-container'>
-    <Counter/>
-    <ToggleImage/>
-    <UserProfile/>
-    <Hour/>
-    <div className="exercicio-container">
-      <CounterTime/>
-    </div>
-  </div>
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<Post />} />
+      </Routes>
+    </>
+  );
 }
 
-export default App
+export default App;
